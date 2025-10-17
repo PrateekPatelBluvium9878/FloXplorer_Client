@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Chat Box",
+  "version": "1.0",
+  "description": "Simple Tailwind-based chat box inside Salesforce page",
+  "permissions": ["activeTab", "scripting","cookies"],
+  "host_permissions": [
+    "*://*.lightning.force.com/*",
+    "*://*.salesforce.com/*",
+    "https://api.perplexity.ai/*"
+  ],
+  "background": {
+    "service_worker": "dist/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.salesforce.com/*", "https://*.lightning.force.com/*"],
+      "js": ["dist/content.js"]
+    }
+  ]
+}
